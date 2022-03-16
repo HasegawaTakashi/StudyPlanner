@@ -24,4 +24,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/create-memo', [CreateMemosController::class, 'createMemo']);
 
+Route::post('/store', [CreateMemosController::class, 'store'])->name('store');
+
 require __DIR__.'/auth.php';

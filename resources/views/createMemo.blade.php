@@ -7,23 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreateMemo</title>
 </head>
-
 <body>
     <h1>Memo</h1>
     <p>CreateMemoのテストページです</p>
 
-    <form>
+    <form method="POST" action="{{ route('store') }}">
+      @csrf
         <div class="form-group">
             <label for="title">タイトル</label>
             <input type="text" class="form-control" id="title" name="title">
-            </div>
+        </div>
         <div class="form-group">
-            <label for="memo">メモ</label>
-            <input type="text" class="form-control" id="memo" name="memo">
-            </div>
-        <a href="{{ route('dashboard') }}" class="btn btn-primary">戻る</a>
-        <button type="submit" class="btn btn-success">追加</button>
-        </form>
+            <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ"></textarea>
+        </div>
+        <a href="{{ route('dashboard') }}" class="btn">戻る</a>
+        <button type="submit" class="btn">追加</button>
+    </form>
 </body>
 
 </html>
