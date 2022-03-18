@@ -13,13 +13,14 @@ class CreateMemosController extends Controller
 
     public function store(Request $request)
     {
-        $posts = $request->all();
-        Memo::insert([
-            'title' => $posts['title'],
-            'memo' => $posts['memo'],
+        $storeMemo = new Memo;
+        $storeMemo->fill([
+            'title' => $request->title,
+            'memo' => $request->memo,
             'user_id' => \Auth::id(),
-            'created_at' => now(),
         ]);
+        $storeMemo->save();
+
         return view('dashboard');
     }
 }
