@@ -14,4 +14,9 @@
             </div>
         </div>
     </div>
+    <div>
+        <a href="http://localhost/create-memo">
+            <button type="button">メモ新規作成</button>
+        </a>
+    </div>
 </x-app-layout>

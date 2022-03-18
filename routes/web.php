@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CreateMemosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/create-memo', [CreateMemosController::class, 'createMemo']);
+
+Route::post('/store', [CreateMemosController::class, 'store'])->name('store');
 
 require __DIR__.'/auth.php';
