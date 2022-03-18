@@ -15,7 +15,7 @@
         </div>
     </div>
     <div>
-        <a href="http://localhost/create-memo">
+        <a href="{{ route('createMemo') }}">
             <button type="button">メモ新規作成</button>
         </a>
     </div>

@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/create-memo', [CreateMemosController::class, 'createMemo']);
+Route::get('/create-memo', [CreateMemosController::class, 'createMemo'])->name('createMemo');
 
 Route::post('/store', [CreateMemosController::class, 'store'])->name('store');
 
