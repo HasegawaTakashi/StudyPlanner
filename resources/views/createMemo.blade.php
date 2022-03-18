@@ -10,9 +10,18 @@
 <body>
     <h1>Memo</h1>
     <p>CreateMemoのテストページです</p>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <form method="POST" action="{{ route('store') }}">
-      @csrf
+        @csrf
         <div class="form-group">
             <label for="title">タイトル</label>
             <input type="text" class="form-control" id="title" name="title">
