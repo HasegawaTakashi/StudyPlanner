@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateMemosController;
+use App\Http\Controllers\ListMemosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/create-memo', [CreateMemosController::class, 'createMemo'])->name('createMemo');
+Route::get('/list-memos', [listMemosController::class, 'listMemos'])->name('listMemos');
 
 Route::post('/store', [CreateMemosController::class, 'store'])->name('store');
 

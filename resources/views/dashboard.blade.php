@@ -19,4 +19,9 @@
             <button type="button">メモ新規作成</button>
         </a>
     </div>
+    <div>
+        <a href="{{ route('listMemos') }}">
+            <button type="button">メモ一覧表示</button>
+        </a>
+    </div>
 </x-app-layout>
