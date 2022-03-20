@@ -15,11 +15,10 @@
     <form method="POST" action="{{ route('store') }}">
         @csrf
         <div class="form-group">
-            <label for="title">タイトル</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <textarea class="form-control" name="title" cols="25" rows="2" placeholder="タイトル">{{ $memos[0]->title }}</textarea>
         </div>
         <div class="form-group">
-            <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ"></textarea>
+            <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memos[0]->memo }}</textarea>
         </div>
         <a href="{{ route('dashboard') }}" class="btn">戻る</a>
     </form>
