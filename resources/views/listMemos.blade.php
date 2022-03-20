@@ -14,12 +14,15 @@
 
     <form method="POST" action="{{ route('store') }}">
         @csrf
-        <div class="form-group">
-            <textarea class="form-control" name="title" cols="25" rows="2" placeholder="タイトル">{{ $memos[0]->title }}</textarea>
-        </div>
-        <div class="form-group">
-            <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memos[0]->memo }}</textarea>
-        </div>
+        @foreach($memos as $memo)
+            <p>{{ $memo->user_id }}</p>
+            <div class="form-group">
+                <textarea class="form-control" name="title" cols="25" rows="2" placeholder="タイトル">{{ $memo->title }}</textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
+            </div>
+        @endforeach
         <a href="{{ route('dashboard') }}" class="btn">戻る</a>
     </form>
 </body>
