@@ -17,10 +17,10 @@
         @foreach($memos as $memo)
             <p>{{ $memo->user_id }}</p>
             <div class="form-group">
-                <textarea class="form-control" name="title" cols="25" rows="2" placeholder="タイトル">{{ $memo->title }}</textarea>
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
+                <ul>
+                    <li class="form-control" name="title">タイトル: {{ $memo->title }}</li>
+                    <li class="form-control" name="name">メモ: {{ $memo->memo }}</li>
+                </ul>
             </div>
         @endforeach
         <a href="{{ route('dashboard') }}" class="btn">戻る</a>
