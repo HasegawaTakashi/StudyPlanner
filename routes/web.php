@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CreateMemosController;
+use App\Http\Controllers\MemosController;
 use App\Http\Controllers\ListMemosController;
 
 /*
@@ -23,9 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/memo/new', [CreateMemosController::class, 'createMemo'])->name('createMemo');
-Route::get('/memo/list', [listMemosController::class, 'listMemos'])->name('listMemos');
+Route::get('/memo/new', [MemosController::class, 'create'])->name('create');
+Route::get('/memo/list', [MemosController::class, 'list'])->name('list');
 
-Route::post('/memo/store', [CreateMemosController::class, 'store'])->name('store');
+Route::post('/memo/store', [MemosController::class, 'store'])->name('store');
 
 require __DIR__.'/auth.php';

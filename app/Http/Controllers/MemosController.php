@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Memo;
 
-class CreateMemosController extends Controller
+class MemosController extends Controller
 {
-    public function createMemo() {
-        return view('createMemo');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -27,5 +23,14 @@ class CreateMemosController extends Controller
         $storeMemo->save();
 
         return view('dashboard');
+    }
+
+    public function create() {
+        return view('createMemo');
+    }
+
+    public function list() {
+        $memos = Memo::get();
+        return view('listMemos', ['memos' => $memos]);
     }
 }
