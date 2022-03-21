@@ -23,9 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/create-memo', [CreateMemosController::class, 'createMemo'])->name('createMemo');
-Route::get('/list-memos', [listMemosController::class, 'listMemos'])->name('listMemos');
+Route::get('/memo/new', [CreateMemosController::class, 'createMemo'])->name('createMemo');
+Route::get('/memo/list', [listMemosController::class, 'listMemos'])->name('listMemos');
 
-Route::post('/store', [CreateMemosController::class, 'store'])->name('store');
+Route::post('/memo/store', [CreateMemosController::class, 'store'])->name('store');
 
 require __DIR__.'/auth.php';
