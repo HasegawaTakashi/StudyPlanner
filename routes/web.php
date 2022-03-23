@@ -24,7 +24,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/memo/new', [MemosController::class, 'create'])->name('create');
-Route::get('/memo/list', [MemosController::class, 'list'])->name('list');
+Route::get('/memo/list/{user_id?}', [MemosController::class, 'list'])->name('list');
+Route::post('/memo/list/{user_id?}', [MemosController::class, 'list'])->name('list');
 
 Route::post('/memo/store', [MemosController::class, 'store'])->name('store');
 

@@ -26,11 +26,31 @@ class MemosController extends Controller
     }
 
     public function create() {
-        return view('createMemo');
+        $memos = Memo::get();
+        return view('createMemo', ['memos' => $memos]);
     }
 
-    public function list() {
-        $memos = Memo::get();
-        return view('listMemos', ['memos' => $memos]);
+    public function list($user_id = 0)
+    {
+        if ($user_id != 0) {
+            $memo = Memo::where('user_id', $user_id)->get()->first();
+        } else {
+            $memo = (object) ['user_id' => 0, 'title' => '', 'memo' => ''];
+        }
+        // $memos = Memo::get();
+        return view('listMemos', ['memo' => $memo]);
+    }
+
+    public function postSubmit(Request $request, $user_id = 0)
+    {
+        $title = $request->input('title');
+        $memo = $request->input('memo');
+        if ($user_id === 0) {
+            Memo::create([
+                'title' => $title,
+                'memo' => $memo
+            ]);
+        }
+        return redirect()->route('dashboard');
     }
 }
