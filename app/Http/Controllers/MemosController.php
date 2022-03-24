@@ -7,6 +7,10 @@ use App\Models\Memo;
 
 class MemosController extends Controller
 {
+    public function createMemo() {
+        return view('createMemo');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -30,15 +34,15 @@ class MemosController extends Controller
         return view('createMemo', ['memos' => $memos]);
     }
 
-    public function list($user_id = 0)
+    public function list(Request $request)
     {
-        if ($user_id != 0) {
-            $memo = Memo::where('user_id', $user_id)->get()->first();
+        $user_id = \Auth::id();
+        if (\Auth::id() != 0) {
+            $memos = Memo::where('user_id', $user_id)->find($user_id);
         } else {
-            $memo = (object) ['user_id' => 0, 'title' => '', 'memo' => ''];
+            $memos = (object) ['user_id' => \Auth::id(), 'title' => $request->title, 'memo' => Memo::where('memo')->get()];
         }
-        // $memos = Memo::get();
-        return view('listMemos', ['memo' => $memo]);
+        return view('listMemos', ['memos' => $memos, $user_id]);
     }
 
     public function postSubmit(Request $request, $user_id = 0)

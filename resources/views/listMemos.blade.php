@@ -12,14 +12,14 @@
     <h1>listMemo</h1>
     <p>listMemoのテストページです</p>
 
-    <form method="POST" action="{{ route('store', ['user_id' => $memo->user_id]) }}">
+    <form method="POST" action="{{ route('store', ['user_id' => $memos->user_id]) }}">
         @csrf
         @foreach ($memos as $memo)
-            <p>{{ $memo->user_id }}</p>
+            <p>{{ $memos->user_id }}</p>
             <div class="form-group">
                 <ul>
-                    <li class="form-control" name="title" value="{{ $memo->title }}">タイトル: {{ $memo->title }}</li>
-                    <li class="form-control" name="memo" value="{{ $memo->memo }}">メモ: {{ $memo->memo }}</li>
+                    <li class="form-control" name="title" value="{{ $memos->title }}">タイトル: {{ $memos->title }}</li>
+                    <li class="form-control" name="memo" value="{{ $memos->memo }}">メモ: {{ $memos->memo }}</li>
                 </ul>
             </div>
         @endforeach
