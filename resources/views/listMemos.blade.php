@@ -11,20 +11,17 @@
 <body>
     <h1>listMemo</h1>
     <p>listMemoのテストページです</p>
-
-    <form method="POST" action="{{ route('store', ['user_id' => $memos->user_id]) }}">
         @csrf
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>
-            <div class="form-group">
+            <div>
                 <ul>
-                    <li class="form-control" name="title" value="{{ $memo }}">タイトル: {{ $memo->title }}</li>
-                    <li class="form-control" name="memo" value="{{ $memo }}">メモ: {{ $memo->memo }}</li>
+                    <li name="title" value="{{ $memo->title }}">タイトル: {{ $memo->title }}</li>
+                    <li name="memo" value="{{ $memo->memo }}">メモ: {{ $memo->memo }}</li>
                 </ul>
             </div>
         @endforeach
         <a href="{{ route('dashboard') }}" class="btn">戻る</a>
-    </form>
 </body>
 
 </html>
