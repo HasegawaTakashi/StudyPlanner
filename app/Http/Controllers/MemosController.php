@@ -53,17 +53,4 @@ class MemosController extends Controller
             'user_id' => $user_id,
             ]);
     }
-
-    public function postSubmit(Request $request, $user_id = 0)
-    {
-        $title = $request->input('title');
-        $memo = $request->input('memo');
-        if ($user_id === 0) {
-            Memo::create([
-                'title' => $title,
-                'memo' => $memo
-            ]);
-        }
-        return redirect()->route('dashboard');
-    }
 }
