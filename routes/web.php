@@ -24,10 +24,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::prefix('memo')->group(function () {
-    Route::get('/memo/new', [MemosController::class, 'create'])->name('create');
-    Route::get('/memo/list/{user_id?}', [MemosController::class, 'list'])->name('list');
-    Route::post('/memo/list/{user_id?}', [MemosController::class, 'list'])->name('list');
+    Route::get('/new', [MemosController::class, 'create'])->name('create');
+    Route::get('/list/{user_id?}', [MemosController::class, 'list'])->name('list');
+    Route::post('/list/{user_id?}', [MemosController::class, 'list'])->name('list');
 
-    Route::post('/memo/store', [MemosController::class, 'store'])->name('store');
+    Route::post('/store', [MemosController::class, 'store'])->name('store');
     require __DIR__.'/auth.php';
 });
