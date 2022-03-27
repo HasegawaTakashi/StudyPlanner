@@ -9,9 +9,13 @@
 </head>
 
 <body>
-    <h1>listMemo</h1>
-    <p>listMemoのテストページです</p>
-        @csrf
+    <h1>ListMemo</h1>
+    <p>ListMemoのテストページです</p>
+    @if ($memo_id === null)
+        <div>
+            メモがありません
+        </div>
+    @else
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>
             <div>
@@ -21,7 +25,8 @@
                 </ul>
             </div>
         @endforeach
-        <a href="{{ route('dashboard') }}" class="btn">戻る</a>
+    @endif
+    <a href="{{ route('dashboard') }}" class="btn">戻る</a>
 </body>
 
 </html>

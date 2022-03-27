@@ -36,21 +36,13 @@ class MemosController extends Controller
 
     public function list(Request $request)
     {
+        $memo_id = $request->id;
         $user_id = \Auth::id();
-        $title = Memo::where('title')->get();
-        if (\Auth::user()->user_id != 0) {
-            $memos = Memo::where('user_id', $user_id)->find($user_id);
-        } else {
-            $memos = new Memo;
-            $memos = Memo::get();
-            $memos->user_id = \Auth::id();
-            $memos->title = $request->title;
-            $memos->memos = Memo::where('memo')->get();
-            }
+        $memos = Memo::where('user_id', $user_id)->get();
         return view('listMemos', [
             'memos' => $memos,
-            'title' => $title,
             'user_id' => $user_id,
+            'memo_id' => $memo_id,
             ]);
     }
 }

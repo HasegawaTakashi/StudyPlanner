@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemosController;
-use App\Http\Controllers\ListMemosController;
 
 /*
 |--------------------------------------------------------------------------
