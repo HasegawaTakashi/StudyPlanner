@@ -11,10 +11,8 @@
 <body>
     <h1>ListMemo</h1>
     <p>ListMemoのテストページです</p>
-    @if ($memo_id === null)
-        <div>
-            メモがありません
-        </div>
+    @if ($judgeBoolean === false)
+            <p>メモはありません</p>
     @else
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>

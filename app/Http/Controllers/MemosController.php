@@ -36,13 +36,18 @@ class MemosController extends Controller
 
     public function list(Request $request)
     {
-        $memo_id = $request->id;
         $user_id = \Auth::id();
         $memos = Memo::where('user_id', $user_id)->get();
+        $searchMemosUserIds = Memo::pluck('user_id');
+        foreach ($searchMemosUserIds as $searchMemosUserId) {
+            $searchId[] = $searchMemosUserId;
+        }
+        $judgeBoolean = array_search($user_id, $searchId);
+        
         return view('listMemos', [
             'memos' => $memos,
             'user_id' => $user_id,
-            'memo_id' => $memo_id,
+            'judgeBoolean' => $judgeBoolean,
             ]);
     }
 }
