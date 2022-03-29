@@ -18,13 +18,13 @@ class MemosController extends Controller
             'memo' => 'required|max:140',
         ]);
 
-        $storeMemo = new Memo;
-        $storeMemo->fill([
+        $store_memo = new Memo;
+        $store_memo->fill([
             'title' => $request->title,
             'memo' => $request->memo,
             'user_id' => \Auth::id(),
         ]);
-        $storeMemo->save();
+        $store_memo->save();
 
         return view('dashboard');
     }
@@ -34,20 +34,20 @@ class MemosController extends Controller
         return view('createMemo', ['memos' => $memos]);
     }
 
-    public function list(Request $request)
+    public function list()
     {
         $user_id = \Auth::id();
         $memos = Memo::where('user_id', $user_id)->get();
-        $searchMemosUserIds = Memo::pluck('user_id');
-        foreach ($searchMemosUserIds as $searchMemosUserId) {
-            $searchId[] = $searchMemosUserId;
+        $search_memos_user_ids = Memo::pluck('user_id');
+        foreach ($search_memos_user_ids as $search_memos_user_id) {
+            $search_id[] = $search_memos_user_id;
         }
-        $judgeBoolean = array_search($user_id, $searchId);
-        
+        $is_false = array_search($user_id, $search_id);
+
         return view('listMemos', [
             'memos' => $memos,
             'user_id' => $user_id,
-            'judgeBoolean' => $judgeBoolean,
+            'is_false' => $is_false,
             ]);
     }
 }

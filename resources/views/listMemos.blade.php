@@ -11,7 +11,7 @@
 <body>
     <h1>ListMemo</h1>
     <p>ListMemoのテストページです</p>
-    @if ($judgeBoolean === false)
+    @if ($is_false === false)
             <p>メモはありません</p>
     @else
         @foreach ($memos as $memo)
