@@ -38,16 +38,20 @@ class MemosController extends Controller
     {
         $user_id = \Auth::id();
         $memos = Memo::where('user_id', $user_id)->get();
-        $search_memos_user_ids = Memo::pluck('user_id');
-        foreach ($search_memos_user_ids as $search_memos_user_id) {
-            $search_id[] = $search_memos_user_id;
+        $count_memo = $memos->count();
+
+        if ($count_memo === 0) {
+            $is_memo_count_zero = false;
+
+        } else {
+            $is_memo_count_zero = true;
+
         }
-        $is_false = array_search($user_id, $search_id);
 
         return view('listMemos', [
             'memos' => $memos,
             'user_id' => $user_id,
-            'is_false' => $is_false,
+            'is_memo_count_zero' => $is_memo_count_zero,
             ]);
     }
 }
