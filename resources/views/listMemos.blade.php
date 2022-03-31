@@ -18,13 +18,13 @@
             <p>{{ $memo->user_id }}</p>
             <div>
                 <ul>
-                    <li name="title" value="{{ $memo->title }}">タイトル: {{ $memo->title }}</li>
-                    <li name="memo" value="{{ $memo->memo }}">メモ: {{ $memo->memo }}</li>
+                    <li name="title">タイトル: {{ $memo->title }}</li>
+                    <li name="memo">メモ: {{ $memo->memo }}</li>
                 </ul>
             </div>
         @endforeach
     @endif
-    <a href="{{ route('dashboard') }}" class="btn">戻る</a>
+    <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>
 </body>
 
 </html>

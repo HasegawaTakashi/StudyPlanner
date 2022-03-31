@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 Route::prefix('memo')->group(function () {
     Route::get('/new', [MemosController::class, 'create'])->name('create');
     Route::get('/list', [MemosController::class, 'list'])->name('list');
-    Route::post('/list', [MemosController::class, 'list'])->name('list');
+    Route::get('/edit', [MemosController::class, 'edit'])->name('edit');
 
     Route::post('/store', [MemosController::class, 'store'])->name('store');
     require __DIR__.'/auth.php';

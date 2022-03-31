@@ -15,11 +15,20 @@
         </div>
     </div>
     <ul>
-        <li><a href="{{ route('create') }}">
+        <li>
+            <a href="{{ route('create') }}">
                 <button type="button">メモ新規作成</button>
-            </a></li>
-        <li><a href="{{ route('list') }}">
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('list') }}">
                 <button type="button">メモ一覧表示</button>
-            </a></li>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('edit') }}">
+                <button type="button">メモ編集</button>
+            </a>
+        </li>
     </ul>
 </x-app-layout>

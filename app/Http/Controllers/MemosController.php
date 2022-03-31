@@ -7,10 +7,6 @@ use App\Models\Memo;
 
 class MemosController extends Controller
 {
-    public function createMemo() {
-        return view('createMemo');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -29,7 +25,8 @@ class MemosController extends Controller
         return view('dashboard');
     }
 
-    public function create() {
+    public function create()
+    {
         $memos = Memo::get();
         return view('createMemo', ['memos' => $memos]);
     }
@@ -45,7 +42,6 @@ class MemosController extends Controller
 
         } else {
             $is_memo_count_zero = true;
-
         }
 
         return view('listMemos', [
@@ -53,5 +49,24 @@ class MemosController extends Controller
             'user_id' => $user_id,
             'is_memo_count_zero' => $is_memo_count_zero,
             ]);
+    }
+
+    public function edit()
+    {
+        $user_id = \Auth::id();
+        $memos = Memo::select('memos.*')->where('user_id', $user_id)->get();
+
+        $count_memo = $memos->count();
+
+        if ($count_memo === 0) {
+            $is_memo_count_zero = false;
+        } else {
+            $is_memo_count_zero = true;
+        }
+
+        return view('editMemos', [
+            'memos' => $memos,
+            'is_memo_count_zero' => $is_memo_count_zero,
+        ]);
     }
 }
