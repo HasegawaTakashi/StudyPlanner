@@ -28,5 +28,6 @@ Route::prefix('memo')->group(function () {
     Route::get('/edit', [MemosController::class, 'edit'])->name('edit');
 
     Route::post('/store', [MemosController::class, 'store'])->name('store');
+    Route::post('/update', [MemosController::class, 'update'])->name('update');
     require __DIR__.'/auth.php';
 });

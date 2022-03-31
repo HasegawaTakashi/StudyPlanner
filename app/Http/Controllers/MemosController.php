@@ -69,4 +69,14 @@ class MemosController extends Controller
             'is_memo_count_zero' => $is_memo_count_zero,
         ]);
     }
+
+    public function update(Request $request)
+    {
+        $posts = $request->all();
+        $request->validate([
+            'title' => 'required|max:50',
+            'memo' => 'required|max:140',
+        ]);
+        dd($posts);
+    }
 }

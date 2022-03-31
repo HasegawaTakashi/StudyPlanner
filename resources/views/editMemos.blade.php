@@ -20,7 +20,7 @@
     </div>
     @endif
 
-    <form method="" action="">
+    <form method="post" action="{{ route('update') }}">
         @csrf
         @if ($is_memo_count_zero === false)
             <p>メモはありません</p>
