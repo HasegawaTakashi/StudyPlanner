@@ -35,19 +35,12 @@ class MemosController extends Controller
     {
         $user_id = \Auth::id();
         $memos = Memo::where('user_id', $user_id)->get();
-        $count_memo = $memos->count();
-
-        if ($count_memo === 0) {
-            $is_memo_count_zero = false;
-
-        } else {
-            $is_memo_count_zero = true;
-        }
+        $does_memo_exists = Memo::where('user_id', $user_id)->exists();
 
         return view('listMemos', [
             'memos' => $memos,
             'user_id' => $user_id,
-            'is_memo_count_zero' => $is_memo_count_zero,
+            'does_memo_exists' => $does_memo_exists,
             ]);
     }
 
@@ -55,18 +48,11 @@ class MemosController extends Controller
     {
         $user_id = \Auth::id();
         $memos = Memo::select('memos.*')->where('user_id', $user_id)->get();
-
-        $count_memo = $memos->count();
-
-        if ($count_memo === 0) {
-            $is_memo_count_zero = false;
-        } else {
-            $is_memo_count_zero = true;
-        }
+        $does_memo_exists = Memo::where('user_id', $user_id)->exists();
 
         return view('editMemos', [
             'memos' => $memos,
-            'is_memo_count_zero' => $is_memo_count_zero,
+            'does_memo_exists' => $does_memo_exists,
         ]);
     }
 
@@ -77,6 +63,5 @@ class MemosController extends Controller
             'title' => 'required|max:50',
             'memo' => 'required|max:140',
         ]);
-        dd($posts);
     }
 }

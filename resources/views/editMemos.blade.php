@@ -22,7 +22,7 @@
 
     <form method="post" action="{{ route('update') }}">
         @csrf
-        @if ($is_memo_count_zero === false)
+        @if ($does_memo_exists === false)
             <p>メモはありません</p>
         @else
             @foreach ($memos as $memo)
