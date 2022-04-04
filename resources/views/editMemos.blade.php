@@ -26,9 +26,8 @@
             <p>メモはありません</p>
         @else
             @foreach ($memos as $memo)
-                <p>user:{{ $memo->user_id }}</p>
-                <p>id:{{ $memo->id }}</p>
-                <div>
+                <form method="post" action="edit_card?memo_id={$memo->memo_id}">
+                    <input type="hidden" name="memo_id" value="$memo->memo_id">
                     <ul>
                         <div class="form-group">
                             <label for="title">タイトル</label>
@@ -39,7 +38,7 @@
                         </div>
                         <button type="submit" class="btn">編集</button>
                     </ul>
-                </div>
+                </form>
             @endforeach
         @endif
         <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>
