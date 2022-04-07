@@ -14,7 +14,6 @@
     @if ($does_memo_exists === false)
             <p>メモはありません</p>
     @else
-    @csrf
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>
             <div>
