@@ -16,12 +16,12 @@
     </div>
     <ul>
         <li>
-            <a href="{{ route('create') }}">
+            <a href="{{ route('memo.create') }}">
                 <button type="button">メモ新規作成</button>
             </a>
         </li>
         <li>
-            <a href="{{ route('list') }}">
+            <a href="{{ route('memo.list') }}">
                 <button type="button">メモ一覧表示</button>
             </a>
         </li>
