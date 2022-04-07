@@ -14,6 +14,7 @@
     @if ($does_memo_exists === false)
             <p>メモはありません</p>
     @else
+    @csrf
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>
             <div>
@@ -22,6 +23,9 @@
                     <li name="memo">メモ: {{ $memo->memo }}</li>
                 </ul>
             </div>
+            <form method="get" action="{{ route('edit', ['memo_id', $memo->id]) }}">
+                <button type="submit" class="btn">編集</button>
+            </form>
         @endforeach
     @endif
     <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>

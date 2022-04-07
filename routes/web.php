@@ -25,8 +25,9 @@ Route::get('/dashboard', function () {
 Route::prefix('memo')->group(function () {
     Route::get('/new', [MemosController::class, 'create'])->name('create');
     Route::get('/list', [MemosController::class, 'list'])->name('list');
-    Route::get('/edit', [MemosController::class, 'edit'])->name('edit');
+    Route::get('/edit/{memo_id}', [MemosController::class, 'edit'])->name('edit');
 
+    Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('edit');
     Route::post('/store', [MemosController::class, 'store'])->name('store');
     Route::post('/update', [MemosController::class, 'update'])->name('update');
     require __DIR__.'/auth.php';
