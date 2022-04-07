@@ -24,23 +24,6 @@
     @if ($does_memo_exists === false)
         <p>メモはありません</p>
     @else
-        {{-- @foreach ($memos as $memo)
-            <form method="post" action="{{ route('edit', ['memo_id' => $memo->id]) }}">
-                <input type="hidden" name="memo_id" value="{$memo->memo_id}">
-                <ul>
-                    <div class="form-group">
-                        <label for="title">タイトル</label>
-                        <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
-                    </div>
-                    <button type="submit" class="btn">編集</button>
-                </ul>
-            </form>
-        @endforeach --}}
-
-        {{-- メモ一件表示 ver. --}}
         <ul>
             <div class="form-group">
                 <label for="title">タイトル</label>
