@@ -36,7 +36,7 @@ class MemosController extends Controller
     {
         $user_id = \Auth::id();
         $memos = Memo::where('user_id', $user_id)->get();
-        $does_memo_exists = Memo::where('user_id', $user_id)->exists();
+        $does_memo_exists = $memos->count() === 0 ? false : true;
 
         return view('listMemos', [
             'memos' => $memos,
@@ -49,18 +49,16 @@ class MemosController extends Controller
     {
         $user_id = \Auth::id();
         $validated = Validator::make($request->all(), [
-            'memo_id' => 'required|numeric',
+            'memo_id' => 'numeric',
         ],
         [
-            'memo_id.required' => 'メモidが必要です',
             'memo_id.numeric' => 'メモidが不正です',
         ]);
         if ($validated->fails()) {
             return redirect()->route('memo.list')->withErrors($validated);
         }
-        $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->get();
-        dd($memo);
-        $does_memo_exists = Memo::where('user_id', $user_id)->exists();
+        $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first();
+        $does_memo_exists = $memo->count() === 0 ? false : true;
 
         return view('editMemos', [
             'memo' => $memo,

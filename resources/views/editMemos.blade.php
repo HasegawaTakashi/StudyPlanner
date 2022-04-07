@@ -44,10 +44,10 @@
         <ul>
             <div class="form-group">
                 <label for="title">タイトル</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $memos->first()->title }}">
+                <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memos->first()->memo }}</textarea>
+                <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
             </div>
             <button type="submit" class="btn">保存</button>
         </ul>
