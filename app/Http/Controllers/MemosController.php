@@ -44,14 +44,25 @@ class MemosController extends Controller
             ]);
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
         $user_id = \Auth::id();
-        $memos = Memo::select('memos.*')->where('user_id', $user_id)->get();
+        $validated = Validator::make($request->all(), [
+            'memo_id' => 'required|numeric',
+        ],
+        [
+            'memo_id.required' => 'メモidが必要です',
+            'memo_id.numeric' => 'メモidが不正です',
+        ]);
+        if ($validated->fails()) {
+            return redirect('memo.edit');
+        }
+        $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->get();
+        dd($memo);
         $does_memo_exists = Memo::where('user_id', $user_id)->exists();
 
         return view('editMemos', [
-            'memos' => $memos,
+            'memo' => $memo,
             'does_memo_exists' => $does_memo_exists,
         ]);
     }
