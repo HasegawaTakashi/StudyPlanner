@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Memo;
+use Validator;
 
 class MemosController extends Controller
 {
@@ -55,7 +56,7 @@ class MemosController extends Controller
             'memo_id.numeric' => 'メモidが不正です',
         ]);
         if ($validated->fails()) {
-            return redirect('memo.edit');
+            return redirect()->route('memo.list')->withErrors($validated);
         }
         $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->get();
         dd($memo);

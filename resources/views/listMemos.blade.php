@@ -11,6 +11,15 @@
 <body>
     <h1>ListMemo</h1>
     <p>ListMemoのテストページです</p>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if ($does_memo_exists === false)
             <p>メモはありません</p>
     @else
