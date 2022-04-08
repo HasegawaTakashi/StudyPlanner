@@ -22,13 +22,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::prefix('memo')->group(function () {
+Route::prefix('memo')->name('memo.')->group(function () {
     Route::get('/new', [MemosController::class, 'create'])->name('memo.create');
     Route::get('/list', [MemosController::class, 'list'])->name('memo.list');
     Route::get('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
 
-    Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('edit');
+    Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
     Route::post('/store', [MemosController::class, 'store'])->name('memo.store');
     Route::post('/update', [MemosController::class, 'update'])->name('memo.update');
-    require __DIR__.'/auth.php';
+    require __DIR__ . '/auth.php';
 });
