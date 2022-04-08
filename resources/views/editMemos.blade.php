@@ -20,11 +20,11 @@
     </div>
     @endif
 
-    @csrf
     @if ($does_memo_exists === false)
         <p>メモはありません</p>
     @else
         <ul>
+            @csrf
             <div class="form-group">
                 <label for="title">タイトル</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
@@ -32,7 +32,9 @@
             <div class="form-group">
                 <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
             </div>
-            <button type="submit" class="btn">保存</button>
+            <button>
+                <a href="{{ route('memo.update', $memo->id) }}">保存</a>
+            </button>
         </ul>
     @endif
         <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>

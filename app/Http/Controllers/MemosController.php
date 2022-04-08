@@ -66,12 +66,13 @@ class MemosController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $memo)
     {
-        $posts = $request->all();
-        $request->validate([
-            'title' => 'required|max:50',
-            'memo' => 'required|max:140',
+        $user_id = \Auth::id();
+        Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
+            'title' => $memo->title,
+            'memo' => $memo->memo,
         ]);
+        return redirect()->route('dashboard');
     }
 }
