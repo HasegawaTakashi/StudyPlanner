@@ -68,12 +68,15 @@ class MemosController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->toArray());
         $user_id = \Auth::id();
-        Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
-            'title' => $memo->title,
-            'memo' => $memo->memo,
-        ]);
+        if (Memo::where('user_id', $user_id)->where('id', $request->memo_id)) {
+            Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
+                'title' => $request->title,
+                'memo' => $request->memo,
+            ]);
+        } else {
+            return 'メモの保存に失敗しました';
+        }
         return redirect()->route('dashboard');
     }
 }
