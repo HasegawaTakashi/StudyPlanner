@@ -27,6 +27,10 @@
             <form method="post" action="{{ route('memo.update') }}">
                 @csrf
                 <div class="form-group">
+                    <label for="memo_id"></label>
+                    <input type="hidden" class="form-control" id="memo_id" name="memo_id" value="{{ $memo->id }}">
+                </div>
+                <div class="form-group">
                     <label for="title">タイトル</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
                 </div>
