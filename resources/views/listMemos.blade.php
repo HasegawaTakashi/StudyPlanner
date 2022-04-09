@@ -21,7 +21,7 @@
         </div>
     @endif
     @if ($does_memo_exists === false)
-            <p>メモはありません</p>
+        <p>メモはありません</p>
     @else
         @foreach ($memos as $memo)
             <p>{{ $memo->user_id }}</p>

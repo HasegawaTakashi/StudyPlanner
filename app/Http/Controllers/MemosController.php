@@ -66,8 +66,9 @@ class MemosController extends Controller
         ]);
     }
 
-    public function update(Request $request, $memo)
+    public function update(Request $request)
     {
+        dd($request->toArray());
         $user_id = \Auth::id();
         Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
             'title' => $memo->title,

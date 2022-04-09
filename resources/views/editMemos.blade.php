@@ -24,20 +24,20 @@
         <p>メモはありません</p>
     @else
         <ul>
-            @csrf
-            <div class="form-group">
-                <label for="title">タイトル</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
-            </div>
-            <div class="form-group">
-                <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
-            </div>
-            <button>
-                <a href="{{ route('memo.update', $memo->id) }}">保存</a>
-            </button>
+            <form method="post" action="{{ route('memo.update') }}">
+                @csrf
+                <div class="form-group">
+                    <label for="title">タイトル</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $memo->title }}">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="memo" cols="30" rows="10" placeholder="メモ">{{ $memo->memo }}</textarea>
+                </div>
+                <button class="btn" type="submit">保存</button>
+            </form>
         </ul>
     @endif
-        <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>
+    <button class="btn"><a href="{{ route('dashboard') }}">戻る</a></button>
     </form>
 </body>
 
