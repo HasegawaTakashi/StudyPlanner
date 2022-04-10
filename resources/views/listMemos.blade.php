@@ -31,9 +31,9 @@
                     <li name="memo">メモ: {{ $memo->memo }}</li>
                 </ul>
             </div>
-            <a href="{{ route('memo.edit', $memo->id) }}">
-                編集
-            </a>
+            <button>
+                <a href="{{ route('memo.edit', $memo->id) }}">編集</a>
+            </button>
         @endforeach
     @endif
     <button><a href="{{ route('dashboard') }}" class="btn">戻る</a></button>
