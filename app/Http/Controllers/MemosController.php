@@ -69,10 +69,16 @@ class MemosController extends Controller
     public function update(Request $request)
     {
         $user_id = \Auth::id();
-        $update_memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
-            'title' => $request->title,
-            'memo' => $request->memo,
+        $validated = $request->validate([
+            'title' => 'required|max:50',
+            'memo' => 'required|max:140',
         ]);
+        $update_memo = Memo::where('user_id', $user_id)
+            ->where('id', $request->memo_id)
+            ->update([
+                'title' => $validated['title'],
+                'memo' => $validated['memo'],
+            ]);
         if ($update_memo === 0) {
             return back()->withInput()->withErrors(['error_message' => 'メモの編集に失敗しました']);
         }
