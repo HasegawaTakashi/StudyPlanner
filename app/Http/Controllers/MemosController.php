@@ -77,7 +77,7 @@ class MemosController extends Controller
             return redirect()->route('memo.list')->withErrors($test);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('memo.list');
     }
 
     public function delete(Request $request)
