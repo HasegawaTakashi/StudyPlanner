@@ -69,19 +69,23 @@ class MemosController extends Controller
     public function update(Request $request)
     {
         $user_id = \Auth::id();
-        if (Memo::where('user_id', $user_id)->where('id', $request->memo_id) == true) {
-            Memo::where('user_id', $user_id)->where('id', $request->memo_id)->update([
+        $test = Memo::where('user_id', $user_id)->where('id',   1000)->update([
                 'title' => $request->title,
                 'memo' => $request->memo,
             ]);
-        } else {
-            return 'メモの保存に失敗しました';
+        if ($test === 0) {
+            return redirect()->route('memo.list')->withErrors($test);
         }
+
         return redirect()->route('dashboard');
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
+        $user_id = \Auth::id();
+        if (Memo::where('user_id', $user_id)->where('id', $request->memo_id) == true) {
+
+        }
         return view('deleteMemos');
     }
 }
