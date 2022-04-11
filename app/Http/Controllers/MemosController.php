@@ -79,4 +79,9 @@ class MemosController extends Controller
         }
         return redirect()->route('dashboard');
     }
+
+    public function delete()
+    {
+        return view('deleteMemos');
+    }
 }
