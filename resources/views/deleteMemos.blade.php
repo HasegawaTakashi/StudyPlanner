@@ -10,6 +10,9 @@
 <body>
     <h1>Memo</h1>
     <p>DeleteMemoのテストページです</p>
+    <p>本当に削除しますか？</p>
+    <button>yes</button>
+    <button>no</button>
 </body>
 
 </html>
