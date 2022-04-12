@@ -27,7 +27,7 @@ Route::prefix('memo')->group(function () {
     Route::get('/list', [MemosController::class, 'list'])->name('memo.list');
     Route::get('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
     Route::get('/update', [MemosController::class, 'update'])->name('memo.update');
-    Route::get('/delete', [MemosController::class, 'delete'])->name('memo.delete');
+    Route::get('/delete{memo_id}', [MemosController::class, 'delete'])->name('memo.delete');
 
     Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
     Route::post('/store', [MemosController::class, 'store'])->name('memo.store');

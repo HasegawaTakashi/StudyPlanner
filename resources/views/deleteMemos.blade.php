@@ -10,6 +10,10 @@
 <body>
     <h1>Memo</h1>
     <p>DeleteMemoのテストページです</p>
+    <div>
+        <p>title: {{ $memo->title }}</p>
+        <p>memo: {{ $memo->memo }}</p>
+    </div>
     <p>本当に削除しますか？</p>
     <button>yes</button>
     <button class="btn"><a href="{{ route('memo.list') }}">no</a></button>

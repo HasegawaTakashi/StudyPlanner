@@ -89,9 +89,9 @@ class MemosController extends Controller
     public function delete(Request $request)
     {
         $user_id = \Auth::id();
-        if (Memo::where('user_id', $user_id)->where('id', $request->memo_id) == true) {
-
-        }
-        return view('deleteMemos');
+        $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first();
+        return view('deleteMemos', [
+            'memo' => $memo,
+        ]);
     }
 }

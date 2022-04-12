@@ -35,7 +35,7 @@
                 <a href="{{ route('memo.edit', $memo->id) }}">編集</a>
             </button>
             <button>
-                <a href="{{ route('memo.delete') }}">削除</a>
+                <a href="{{ route('memo.delete', $memo->id) }}">削除</a>
             </button>
         @endforeach
     @endif
