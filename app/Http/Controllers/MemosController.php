@@ -94,4 +94,8 @@ class MemosController extends Controller
             'memo' => $memo,
         ]);
     }
+
+    public function destroy(Request $request) {
+        return redirect()->route('memo.list');
+    }
 }
