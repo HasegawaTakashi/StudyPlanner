@@ -12,7 +12,7 @@
     <p>DeleteMemoのテストページです</p>
     <p>本当に削除しますか？</p>
     <button>yes</button>
-    <button>no</button>
+    <button class="btn"><a href="{{ route('memo.list') }}">no</a></button>
 </body>
 
 </html>
