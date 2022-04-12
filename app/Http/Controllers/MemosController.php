@@ -86,11 +86,11 @@ class MemosController extends Controller
         return redirect()->route('memo.list');
     }
 
-    public function delete(Request $request)
+    public function confirmDelete(Request $request)
     {
         $user_id = \Auth::id();
         $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first();
-        return view('deleteMemos', [
+        return view('confirmDeleteMemos', [
             'memo' => $memo,
         ]);
     }
