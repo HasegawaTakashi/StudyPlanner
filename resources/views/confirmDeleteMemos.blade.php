@@ -15,7 +15,7 @@
         <p>memo: {{ $memo->memo }}</p>
     </div>
     <p>本当に削除しますか？</p>
-    <button class="btn"><a href="{{ route('memo.destroy') }}">yes</a></button>
+    <button class="btn"><a href="{{ route('memo.destroy', $memo->id) }}">yes</a></button>
     <button class="btn"><a href="{{ route('memo.list') }}">no</a></button>
 </body>
 
