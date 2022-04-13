@@ -102,7 +102,16 @@ class MemosController extends Controller
         return redirect()->route('memo.list');
     }
 
-    public function deleteList() {
-        return view('deleteMemosList');
+    public function deletedList()
+    {
+        $user_id = \Auth::id();
+        $trashed_memos = Memo::where('user_id', $user_id)->onlyTrashed()->whereNotNull('id')->get();
+        $does_memo_exists = $trashed_memos->count() === 0 ? false : true;
+
+        return view('deletedMemosList', [
+            'user_id' => $user_id,
+            'does_memo_exists' => $does_memo_exists,
+            'trashed_memos' => $trashed_memos,
+        ]);
     }
 }
