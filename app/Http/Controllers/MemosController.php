@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use App\Models\Memo;
 use Validator;
@@ -100,10 +99,6 @@ class MemosController extends Controller
         $user_id = \Auth::id();
         Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first()->delete();
 
-        // updateをする場合
-        // Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first()->update([
-        //     'deleted_at' => date("Y-m-d H:i:s", time())
-        // ]);
         return redirect()->route('memo.list');
     }
 }
