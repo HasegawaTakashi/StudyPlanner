@@ -101,4 +101,8 @@ class MemosController extends Controller
 
         return redirect()->route('memo.list');
     }
+
+    public function deleteList() {
+        return view('deleteMemosList');
+    }
 }

@@ -25,5 +25,10 @@
                 <button type="button">メモ一覧表示</button>
             </a>
         </li>
+        <li>
+            <a href="{{ route('memo.delete.list') }}">
+                <button type="button">削除済みメモ一覧</button>
+            </a>
+        </li>
     </ul>
 </x-app-layout>
