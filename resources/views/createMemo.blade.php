@@ -20,7 +20,7 @@
     </div>
     @endif
 
-    <form method="POST" action="{{ route('store') }}">
+    <form method="POST" action="{{ route('memo.store') }}">
         @csrf
         <div class="form-group">
             <label for="title">タイトル</label>

@@ -14,9 +14,21 @@
             </div>
         </div>
     </div>
-    <div>
-        <a href="{{ route('createMemo') }}">
-            <button type="button">メモ新規作成</button>
-        </a>
-    </div>
+    <ul>
+        <li>
+            <a href="{{ route('memo.create') }}">
+                <button type="button">メモ新規作成</button>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('memo.list') }}">
+                <button type="button">メモ一覧表示</button>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('memo.delete.list') }}">
+                <button type="button">削除済みメモ一覧</button>
+            </a>
+        </li>
+    </ul>
 </x-app-layout>
