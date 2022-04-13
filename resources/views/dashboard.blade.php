@@ -25,11 +25,5 @@
                 <button type="button">メモ一覧表示</button>
             </a>
         </li>
-        {{-- 編集機能修正時 一時コメントアウト
-        <li>
-            <a href="{{ route('edit') }}">
-                <button type="button">メモ編集</button>
-            </a>
-        </li> --}}
     </ul>
 </x-app-layout>
