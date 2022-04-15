@@ -11,11 +11,11 @@
 <body style="background-color:#BFDBFE; --bg-opacity: 1; opacity: 0.4">
   <div>
     @auth
-      <a href="{{ url('/dashboard') }}">Dashboard</a>
+      <a href="{{ url('/dashboard') }}" class="btn">Dashboard</a>
     @else
-        <a href="{{ route('login') }}">ログイン</a>
+        <a href="{{ route('login') }}" class="btn">ログイン</a>
         @if (Route::has('register'))
-          <a href="{{ route('register') }}">新規登録</a>
+          <a href="{{ route('register') }}"" class="btn">新規登録</a>
         @endif
       @endauth
   </div>
