@@ -29,9 +29,8 @@
             }
         </style>
     </head>
-
     <body class="antialiased">
-        <div class="relative flex justify-center min-h-screen bg-blue-200 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <div class="relative flex justify-between min-h-screen bg-blue-200 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
             <div class="hidden fixed bottom-0 px-6 py-4 sm:block">
                     @auth
