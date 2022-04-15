@@ -8,7 +8,7 @@
   <script src="{{ asset('js/app.js') }}"></script>
   <title>Top(bootstrap)</title>
 </head>
-<body>
+<body style="background-color:#BFDBFE; --bg-opacity: 1; opacity: 0.4">
   <div>
     @auth
       <a href="{{ url('/dashboard') }}">Dashboard</a>
