@@ -9,21 +9,22 @@
   <title>Top(bootstrap)</title>
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container-fluid">
-  <div class="d-flex align-items-end justify-content-around">
-    @auth
-      <button type="button" class="btn btn-secondary  btn-lg">
-        <a href="{{ url('/dashboard') }}" class="btn">Dashboard</a>
-      </button>
-    @else
-      <button type="button" class="btn btn-secondary btn-lg">
-        <a href="{{ route('login') }}" class="btn">ログイン</a>
-      </button>
-        @if (Route::has('register'))
-        <button type="button" class="btn btn-secondary btn-lg">
-          <a href="{{ route('register') }}" class="btn">新規登録</a>
+    <div class="navbar d-flex justify-content-around">
+      @auth
+        <button type="button" class="btn btn-secondary  btn-lg">
+          <a href="{{ url('/dashboard') }}" class="btn">Dashboard</a>
         </button>
-        @endif
-    @endauth
-  </div>
+      @else
+        <button type="button" class="btn btn-secondary btn-lg">
+          <a href="{{ route('login') }}" class="btn">ログイン</a>
+        </button>
+          @if (Route::has('register'))
+          <button type="button" class="btn btn-secondary btn-lg">
+            <a href="{{ route('register') }}" class="btn">新規登録</a>
+          </button>
+          @endif
+      @endauth
+    </div>
+
 </body>
 </html>
