@@ -34,15 +34,16 @@
           @endif
         @endauth
       </div>
-    </div>
   </nav>
 
   <div class="card">
     <div class="card-header text-center p-5">
-      メモタイトル表示スペース
+      <h1>なんでも学習帳</h1>
     </div>
     <div class="card-body p-5">
-      <p class="card-text text-center">メモ内容表示スペース</p>
+      <h2 class="card-text text-center">
+        なんでも書ける、そんな学習帳です
+      </h2>
     </div>
   </div>
 </body>
