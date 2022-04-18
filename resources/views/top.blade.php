@@ -37,7 +37,7 @@
   </nav>
 
   <div class="card">
-    <div class="card-header text-center p-5">
+    <div class="card-header text-center py-4">
       <h1>なんでも学習帳</h1>
     </div>
     <div class="card-body p-5">
