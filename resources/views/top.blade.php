@@ -9,31 +9,34 @@
   <title>Top(bootstrap)</title>
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
-  <nav class="navbar navbar-expand navbar-light list-unstyled container-fluid my-3">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="container">
-        <div class="row">
-          @auth
-              <div class="col-md-2">
-                    <button type="button" class="btn btn-secondary">
-                      <a class="nav-link active text-light" aria-current="page" href="{{ url('/dashboard') }}">ホーム</a>
-                    </button>
-              </div>
-            @else
-              <div class="col-md-2">
-                  <button type="button" class="btn btn-secondary">
-                    <a class="nav-link text-light" href="{{ route('login') }}">ログイン</a>
-                  </button>
-              </div>
-            @if (Route::has('register'))
-            <div class="col-md-2 ms-3">
-                  <button type="button" class="btn btn-secondary">
-                    <a class="nav-link text-light" href="{{ route('register') }}">新規登録</a>
-                  </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          @if (Route::has('login'))
+            <div class="hidden"></div>
+              @auth
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}">ホーム</a>
+                </li>
+              @else
+                <li class="nav-item m-1">
+                  <a class="nav-link" href="{{ route('login') }}">ログイン
+                  </a>
+                </li>
+                @if (Route::has('register'))
+                  <li class="nav-item m-1">
+                    <a class="nav-link" href="{{ route('register') }}">新規登録
+                    </a>
+                  </li>
+                @endif
+              @endauth
             </div>
-            @endif
-          @endauth
-        </div>
+          @endif
+        </ul>
       </div>
     </div>
   </nav>
