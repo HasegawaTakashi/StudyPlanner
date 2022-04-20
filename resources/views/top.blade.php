@@ -9,24 +9,24 @@
   <title>Top(bootstrap)</title>
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
-  <nav class="navbar navbar-expand-lg navbar-light list-unstyled container-fluid my-3">
+  <nav class="navbar navbar-expand navbar-light list-unstyled container-fluid my-3">
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="container">
         <div class="row">
           @auth
-              <div class="col-2">
+              <div class="col-md-2">
                     <button type="button" class="btn btn-secondary">
                       <a class="nav-link active text-light" aria-current="page" href="{{ url('/dashboard') }}">ホーム</a>
                     </button>
               </div>
             @else
-              <div class="col-2">
+              <div class="col-md-2">
                   <button type="button" class="btn btn-secondary">
                     <a class="nav-link text-light" href="{{ route('login') }}">ログイン</a>
                   </button>
               </div>
             @if (Route::has('register'))
-            <div class="col-2 ms-3">
+            <div class="col-md-2 ms-3">
                   <button type="button" class="btn btn-secondary">
                     <a class="nav-link text-light" href="{{ route('register') }}">新規登録</a>
                   </button>
