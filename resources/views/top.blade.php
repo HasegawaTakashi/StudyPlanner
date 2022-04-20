@@ -9,33 +9,34 @@
   <title>Top(bootstrap)</title>
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
-  <nav class="navbar navbar-expand-lg navbar-light list-unstyled my-3">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        @auth
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <button type="button" class="btn btn-secondary">
-                <a class="nav-link active text-light" aria-current="page" href="{{ url('/dashboard') }}">ホーム</a>
-              </button>
-            </li>
-          @else
-            <li class="nav-item">
-              <button type="button" class="btn btn-secondary">
-                <a class="nav-link text-light" href="{{ route('login') }}">ログイン</a>
-              </button>
-            </li>
+  <nav class="navbar navbar-expand-lg navbar-light list-unstyled container-fluid my-3">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="container">
+        <div class="row">
+          @auth
+              <div class="col-2">
+                    <button type="button" class="btn btn-secondary">
+                      <a class="nav-link active text-light" aria-current="page" href="{{ url('/dashboard') }}">ホーム</a>
+                    </button>
+              </div>
+            @else
+              <div class="col-2">
+                  <button type="button" class="btn btn-secondary">
+                    <a class="nav-link text-light" href="{{ route('login') }}">ログイン</a>
+                  </button>
+              </div>
             @if (Route::has('register'))
-            <li class="nav-item ms-3">
-              <button type="button" class="btn btn-secondary">
-                <a class="nav-link text-light" href="{{ route('register') }}">新規登録</a>
-              </button>
-            </li>
-          </ul>
-          @endif
-        @endauth
+            <div class="col-2 ms-3">
+                  <button type="button" class="btn btn-secondary">
+                    <a class="nav-link text-light" href="{{ route('register') }}">新規登録</a>
+                  </button>
+            </div>
+            @endif
+          @endauth
+        </div>
       </div>
+    </div>
   </nav>
-
   <div class="card">
     <div class="card-header text-center py-4">
       <h1>なんでも学習帳</h1>
