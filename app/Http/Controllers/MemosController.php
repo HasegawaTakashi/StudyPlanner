@@ -129,7 +129,7 @@ class MemosController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            return redirect()->route('dashboard');
+            return redirect()->route('home');
         }
         return redirect()->back();
     }

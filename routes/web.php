@@ -22,6 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
+
 Route::prefix('memo')->group(function () {
     Route::get('/new', [MemosController::class, 'create'])->name('memo.create');
     Route::get('/list', [MemosController::class, 'list'])->name('memo.list');
