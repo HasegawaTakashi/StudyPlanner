@@ -30,7 +30,9 @@ Route::prefix('memo')->group(function () {
     Route::get('/delete/{memo_id}', [MemosController::class, 'confirmDelete'])->name('memo.delete');
     Route::get('/destroy/{memo_id}', [MemosController::class, 'destroy'])->name('memo.destroy');
     Route::get('/getDeletedList',[MemosController::class, 'deletedList'])->name('memo.delete.list');
+    Route::get('/signIn', [MemosController::class, 'signIn'])->name('memo.signIn');
 
+    Route::post('/signIn', [MemosController::class, 'postSignIn'])->name('memo.post.signIn');
     Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
     Route::post('/store', [MemosController::class, 'store'])->name('memo.store');
     Route::post('/update', [MemosController::class, 'update'])->name('memo.update');
