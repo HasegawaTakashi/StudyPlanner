@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <script src="{{ asset('js/app.js') }}"></script>
   <title>Document</title>
 </head>
-<body>
+
+<body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <h1>ログイン</h1>
+    <div class="col-md-4 col-md-offset-4 m-3">
+      <h1 class="fw-bold">ログイン</h1>
       @if(count($errors) >0)
         <div class="alert alert-danger">
           <ul>
@@ -19,17 +22,19 @@
           </ul>
         </div>
       @endif
-      <form action="{{ route('memo.signIn') }}" method="post">
+      <form action="{{ route('memo.signIn') }}" method="post" class="m-3">
+        @csrf
         <div class="form-group">
-          <label for="email">メールアドレス</label>
-          <input type="text" id="email" name="email" class="form-control">
+          <label for="email"><p class="fw-bold">メールアドレス</p></label>
+          <input type="text" id="email" name="email" class="form-control" placeholder="メールアドレス">
         </div>
-        <div class="form-group">
-          <label for="password">パスワード</label>
-          <input type="password" id="password" name="password" class="form-control">
+        <div class="form-group my-3">
+          <label for="password"><p class="fw-bold">パスワード</p></label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="パスワード">
         </div>
-        <button type="submit" class="btn btn-primary">ログイン</button>
-        {{ csrf_field() }}
+        <div class="row justify-content-end">
+          <button type="submit" class="btn btn-primary my-3 col-4">ログイン</button>
+        </div>
       </form>
     </div>
   </div>
