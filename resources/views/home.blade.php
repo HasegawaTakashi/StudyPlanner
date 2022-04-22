@@ -8,5 +8,11 @@
 </head>
 <body>
   <p>home test</p>
+  <div class="mt-3 space-y-1">
+      <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button>logout</button>
+      </form>
+  </div>
 </body>
 </html>
