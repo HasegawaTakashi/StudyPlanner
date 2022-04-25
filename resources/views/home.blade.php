@@ -51,12 +51,8 @@
     @if ($does_memo_exists === false)
         <p>メモはありません</p>
     @else
-      <h1>
-        {{ $memos->first()->title }}
-      </h1>
-      <h2>
-        {{ $memos->first()->memo }}
-      </h2>
+      <h1>{{ $memos->first()->title }}</h1>
+      <h2>{{ $memos->first()->memo }}</h2>
     @endif
   </div>
 </body>
