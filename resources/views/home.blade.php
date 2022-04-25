@@ -38,5 +38,26 @@
       </div>
     </div>
   </nav>
+  <div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if ($does_memo_exists === false)
+        <p>メモはありません</p>
+    @else
+      <h1>
+        {{ $memos->first()->title }}
+      </h1>
+      <h2>
+        {{ $memos->first()->memo }}
+      </h2>
+    @endif
+  </div>
 </body>
 </html>

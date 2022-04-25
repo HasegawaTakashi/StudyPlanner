@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemosController;
+use App\Models\Memo;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/home', function () {
-    return view('home');
+    $user_id = \Auth::id();
+    $memos = Memo::where('user_id', $user_id)->get();
+    $does_memo_exists = $memos->count() === 0 ? false : true;
+    return view('home')
+        ->with('user_id', $user_id)
+        ->with('memos', $memos)
+        ->with('does_memo_exists', $does_memo_exists);
 })->middleware(['auth'])->name('home');
 
 Route::prefix('memo')->group(function () {
