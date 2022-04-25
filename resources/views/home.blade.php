@@ -38,7 +38,7 @@
       </div>
     </div>
   </nav>
-  <div>
+  <div class="m-3">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -49,10 +49,18 @@
         </div>
     @endif
     @if ($does_memo_exists === false)
-        <p>メモはありません</p>
+        <h1 class="bg-light">メモはありません</h1>
     @else
-      <h1>{{ $memos->first()->title }}</h1>
-      <h2>{{ $memos->first()->memo }}</h2>
+      <div style="height: 100vh">
+        <div class="bg-light p-3 m-3">
+          <h1>{{ $memos->first()->title }}</h1>
+        </div>
+        <div class="h-50 bg-light p-3 m-3">
+          <h2>{{ $memos->first()->memo }}</h2>
+        </div>
+      </div>
+      <div class="h-auto">
+      </div>
     @endif
   </div>
 </body>
