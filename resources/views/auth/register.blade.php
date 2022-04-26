@@ -8,6 +8,7 @@
   <script src="{{ asset('js/app.js') }}"></script>
   <title>Top(bootstrap)</title>
 </head>
+
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
     <div class="row">
         <div class="col-md-4 col-md-offset-4 m-3">
@@ -24,23 +25,22 @@
             @endif
             <form method="POST" action="{{ route('register') }}" class="m-3">
                 @csrf
-
                 <!-- Name -->
                 <div class="form-group">
-                    <label for="name"><p class="fw-bold">名前</p>
-                    <input id="name" class="form-controll" type="text" name="name" value="{{ old('name') }}"  placeholder="名前" required autofocus>
+                    <label for="name"><p class="fw-bold">名前</p></label>
+                    <input id="name" class="form-control" type="text" name="name" value="{{ old('name') }}"  placeholder="名前" required autofocus>
                 </div>
 
                 <!-- Email Address -->
                 <div class="form-group my-3">
-                    <label for="email"><p class="fw-bold">メールアドレス</p>
-                    <input id="email" class="form-controll" type="email" name="email" :value="{{ old('email') }}"  placeholder="メールアドレス" required>
+                    <label for="email"><p class="fw-bold">メールアドレス</p></label>
+                    <input id="email" class="form-control" type="email" name="email" :value="{{ old('email') }}"  placeholder="メールアドレス" required>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group my-3">
-                    <label for="password"><p class="fw-bold">パスワード</p>
-                    <input id="password" class="form-controll"             placeholder="パスワード"
+                    <label for="password"><p class="fw-bold">パスワード</p></label>
+                    <input id="password" class="form-control"             placeholder="パスワード"
                                     type="password"
                                     name="password"
                                     required autocomplete="new-password">
