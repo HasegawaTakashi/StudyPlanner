@@ -26,7 +26,7 @@
         @csrf
         <div class="form-group">
           <label for="email"><p class="fw-bold">メールアドレス</p></label>
-          <input type="text" id="email" name="email" class="form-control" placeholder="メールアドレス"  autofocus>
+          <input type="text" id="email" name="email" class="form-control" placeholder="メールアドレス"  autofocus required>
         </div>
         <div class="form-group my-3">
           <label for="password"><p class="fw-bold">パスワード</p></label>
