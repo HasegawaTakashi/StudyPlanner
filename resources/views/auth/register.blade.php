@@ -47,13 +47,13 @@
                 </div>
 
                 <!-- Confirm Password -->
-                {{-- <div class="mt-4">
-                    <label for="password_confirmation">
-                    <input id="password_confirmation" class="block mt-1 w-full"
+                <div class="my-3">
+                    <label for="password_confirmation"><p class="fw-bold">確認</p></label>
+                    <input id="password_confirmation" class="form-control"
                                     placeholder="確認"
                                     type="password"
                                     name="password_confirmation" required>
-                </div> --}}
+                </div>
 
                 <div class="flex justify-end mt-4">
                     <p>
