@@ -23,9 +23,6 @@
             <a class="nav-link active" aria-current="page" href="{{ route('memo.list') }}">メモ一覧表示</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('memo.delete.list') }}">削除済みメモ一覧</a>
-          </li>
-          <li class="nav-item">
             <form class="nav-link active" aria-current="page" method="POST" action="{{ route('logout') }}">
                 @csrf
                 <nav-link :href="route('logout')" onclick="event.preventDefault();
