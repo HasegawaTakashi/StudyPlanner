@@ -97,10 +97,13 @@ class MemosController extends Controller
 
     public function confirmDelete(Request $request)
     {
+
         $user_id = \Auth::id();
         $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first();
+        $does_memo_exists = $memo->count() === 0 ? false : true;
         return view('confirmDeleteMemos', [
             'memo' => $memo,
+            'does_memo_exists' => $does_memo_exists,
         ]);
     }
 
