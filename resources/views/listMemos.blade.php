@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="{{ asset('js/app.js') }}"></script>
-    <title>ListMemo</title>
+    <title>メモ一覧</title>
 </head>
 
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
     <div class="m-3">
-        <h1 class="my-4">ListMemo</h1>
+        <h1 class="my-4">メモ一覧</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -26,9 +26,9 @@
         @else
             @foreach ($memos as $memo)
                 <div class="my-3">
-                    <ul class="list-unstyled">
-                        <li class="p-1 my-3 bg-light" name="title">タイトル: {{ $memo->title }}</li>
-                        <li class="p-1 my-3 bg-light" name="memo">メモ: {{ $memo->memo }}</li>
+                    <ul class="list-unstyled text-black">
+                        <li class="p-1 my-3 bg-light fw-bold" name="title">タイトル: {{ $memo->title }}</li>
+                        <li class="p-1 my-3 bg-light fw-bold" name="memo">メモ: {{ $memo->memo }}</li>
                     </ul>
                 </div>
                 <div class="d-flex justify-content-end">
