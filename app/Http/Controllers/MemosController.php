@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Memo;
 use Validator;
+use Auth;
 
 class MemosController extends Controller
 {
@@ -23,7 +24,15 @@ class MemosController extends Controller
         ]);
         $store_memo->save();
 
-        return view('dashboard');
+        $trashed_memos = Memo::where('user_id', $store_memo->user_id)->onlyTrashed()->whereNotNull('id')->get();
+        $does_memo_exists = $trashed_memos->count() === 0 ? false : true;
+
+        return view('home', [
+            'user_id' => $store_memo->user_id,
+            'does_memo_exists' => $does_memo_exists,
+            'trashed_memos' => $trashed_memos,
+            'memos' => $store_memo,
+        ]);
     }
 
     public function create()
@@ -88,10 +97,13 @@ class MemosController extends Controller
 
     public function confirmDelete(Request $request)
     {
+
         $user_id = \Auth::id();
         $memo = Memo::where('user_id', $user_id)->where('id', $request->memo_id)->first();
+        $does_memo_exists = $memo->count() === 0 ? false : true;
         return view('confirmDeleteMemos', [
             'memo' => $memo,
+            'does_memo_exists' => $does_memo_exists,
         ]);
     }
 
@@ -102,16 +114,21 @@ class MemosController extends Controller
         return redirect()->route('memo.list');
     }
 
-    public function deletedList()
+    public function signIn()
     {
-        $user_id = \Auth::id();
-        $trashed_memos = Memo::where('user_id', $user_id)->onlyTrashed()->whereNotNull('id')->get();
-        $does_memo_exists = $trashed_memos->count() === 0 ? false : true;
+        return view('signIn');
+    }
 
-        return view('deletedMemosList', [
-            'user_id' => $user_id,
-            'does_memo_exists' => $does_memo_exists,
-            'trashed_memos' => $trashed_memos,
+    public function postSignIn(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'email|required',
+            'password' => 'required|min:4'
         ]);
+
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect()->route('home');
+        }
+        return redirect()->back();
     }
 }

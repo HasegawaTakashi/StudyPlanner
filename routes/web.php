@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemosController;
+use App\Models\Memo;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,22 @@ use App\Http\Controllers\MemosController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/home', function () {
+    $user_id = \Auth::id();
+    $memos = Memo::where('user_id', $user_id)->get();
+    $does_memo_exists = $memos->count() === 0 ? false : true;
+    return view('home')
+        ->with('user_id', $user_id)
+        ->with('memos', $memos)
+        ->with('does_memo_exists', $does_memo_exists);
+})->middleware(['auth'])->name('home');
 
 Route::prefix('memo')->group(function () {
     Route::get('/new', [MemosController::class, 'create'])->name('memo.create');
@@ -30,7 +41,9 @@ Route::prefix('memo')->group(function () {
     Route::get('/delete/{memo_id}', [MemosController::class, 'confirmDelete'])->name('memo.delete');
     Route::get('/destroy/{memo_id}', [MemosController::class, 'destroy'])->name('memo.destroy');
     Route::get('/getDeletedList',[MemosController::class, 'deletedList'])->name('memo.delete.list');
+    Route::get('/signIn', [MemosController::class, 'signIn'])->name('memo.signIn');
 
+    Route::post('/signIn', [MemosController::class, 'postSignIn'])->name('memo.post.signIn');
     Route::post('/edit/{memo_id}', [MemosController::class, 'edit'])->name('memo.edit');
     Route::post('/store', [MemosController::class, 'store'])->name('memo.store');
     Route::post('/update', [MemosController::class, 'update'])->name('memo.update');
