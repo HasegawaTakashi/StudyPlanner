@@ -38,9 +38,9 @@
   <div class="m-3">
         @if ($errors->any())
         <div class="alert alert-danger">
-            <ul>
+            <ul class="my-3">
                 @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li class="list-unstyled fw-bold">{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
