@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="{{ asset('js/app.js') }}"></script>
-  <title>Top(bootstrap)</title>
+  <title>なんでも学習帳</title>
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
   <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
