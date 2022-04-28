@@ -24,14 +24,21 @@
             @if ($does_memo_exists === false)
                 <p>メモはありません</p>
             @else
-                <p>title: {{ $memo->title }}</p>
-                <p>memo: {{ $memo->memo }}</p>
+                <div class="my-3">
+                    <ul class="list-unstyled text-black">
+                        <li class="bg-light fw-bold p-1 my-3">タイトル: {{ $memo->title }}</li>
+                        <li class="bg-light fw-bold p-1 my-3">メモ: {{ $memo->memo }}</li>
+                    </ul>
+                </div>
             @endif
         </div>
     </div>
-    <p>本当に削除しますか？</p>
-    <button class="btn"><a href="{{ route('memo.destroy', $memo->id) }}">yes</a></button>
-    <button class="btn"><a href="{{ route('memo.list') }}">no</a></button>
+    <div class="my-5 mx-3">
+        <h2 class="fw-bold"><span class="text-danger">上記のメモを削除しますか？</span></h2>
+        <div class="m-3">
+            <button class="btn btn-danger opacity-75 mx-3"><a href="{{ route('memo.destroy', $memo->id) }}" class="text-black">はい</a></button>
+            <button class="btn btn-success opacity-75 mx-3"><a href="{{ route('memo.list') }}" class="text-black">いいえ</a></button>
+        </div>
+    </div>
 </body>
-
 </html>
