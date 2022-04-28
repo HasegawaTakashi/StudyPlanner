@@ -10,7 +10,7 @@
 </head>
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
     <div class="m-3">
-        <h1>Memo</h1>
+        <h1>メモ編集</h1>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul class="my-3">
