@@ -22,7 +22,7 @@
             </div>
         @endif
         @if ($does_memo_exists === false)
-            <p>メモはありません</p>
+            <h1><span class="bg-light">メモはありません</span></h1>
         @else
             @foreach ($memos as $memo)
                 <div class="my-3">
@@ -43,7 +43,7 @@
                 </div>
             @endforeach
         @endif
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-start">
             <button class="my-3 btn-sm btn btn-success opacity-75"><a href="{{ route('home') }}" class="btn">戻る</a></button>
         </div>
     </div>
