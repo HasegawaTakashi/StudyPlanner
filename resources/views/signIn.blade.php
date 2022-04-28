@@ -15,11 +15,11 @@
       <h1 class="fw-bold">ログイン</h1>
       @if(count($errors) >0)
         <div class="alert alert-danger">
-          <ul>
-            @foreach($errors->all() as $error)
-              <li>{{ $error }}</li>
+        <ul class="my-3">
+            @foreach ($errors->all() as $error)
+            <li class="list-unstyled fw-bold">{{ $error }}</li>
             @endforeach
-          </ul>
+        </ul>
         </div>
       @endif
       <form action="{{ route('memo.signIn') }}" method="post" class="m-3">
