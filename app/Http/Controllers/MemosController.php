@@ -26,15 +26,7 @@ class MemosController extends Controller
         ]);
         $store_memo->save();
 
-        $trashed_memos = Memo::where('user_id', $store_memo->user_id)->onlyTrashed()->whereNotNull('id')->get();
-        $does_memo_exists = $trashed_memos->count() === 0 ? false : true;
-
-        return view('home', [
-            'user_id' => $store_memo->user_id,
-            'does_memo_exists' => $does_memo_exists,
-            'trashed_memos' => $trashed_memos,
-            'memos' => $store_memo,
-        ]);
+        return redirect()->route('home');
     }
 
     public function create()
