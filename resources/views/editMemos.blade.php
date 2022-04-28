@@ -43,7 +43,7 @@
             </ul>
         @endif
         <div class="d-flex justify-content-end">
-            <button class="btn btn-success opacity-75"><a href="{{ route('home') }}" class="text-black">戻る</a></button>
+            <button class="btn btn-success opacity-75"><a href="{{ route('memo.list') }}" class="text-black">戻る</a></button>
         </div>
         </form>
     </div>
