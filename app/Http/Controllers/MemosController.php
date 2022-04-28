@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
+use App\Models\Inquiry;
 use Illuminate\Http\Request;
 use App\Models\Memo;
 use Validator;
@@ -44,7 +46,7 @@ class MemosController extends Controller
     public function list()
     {
         $user_id = \Auth::id();
-        $memos = Memo::where('user_id', $user_id)->get();
+        $memos = Memo::where('user_id', $user_id)->paginate(5);
         $does_memo_exists = $memos->count() === 0 ? false : true;
 
         return view('listMemos', [

@@ -44,6 +44,9 @@
                 </div>
             @endforeach
         @endif
+        <div>
+            {{ $memos->links() }}
+        </div>
         <div class="d-flex justify-content-start">
             <button class="my-3 btn-sm btn btn-success opacity-75"><a href="{{ route('home') }}" class="btn">戻る</a></button>
         </div>
