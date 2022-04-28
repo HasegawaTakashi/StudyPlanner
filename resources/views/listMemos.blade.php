@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="{{ asset('js/app.js') }}"></script>
-    <title>メモ一覧</title>
+    <title>なんでも学習帳 メモ一覧</title>
 </head>
 
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
