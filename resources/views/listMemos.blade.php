@@ -13,16 +13,17 @@
     <div class="m-3">
         <h1 class="my-4">メモ一覧</h1>
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <ul class="my-3">
+                @foreach ($errors->all() as $error)
+                <li class="list-unstyled fw-bold">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
+
         @if ($does_memo_exists === false)
-            <h1><span class="bg-light">メモはありません</span></h1>
+            <h1><span class="bg-light fw-bold">メモはありません</span></h1>
         @else
             @foreach ($memos as $memo)
                 <div class="my-3">

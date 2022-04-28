@@ -22,7 +22,7 @@
         @endif
 
         @if ($does_memo_exists === false)
-            <p>メモはありません</p>
+            <h1><span class="bg-light fw-bold">メモはありません</span></h1>
         @else
             <ul>
                 <form method="post" action="{{ route('memo.update') }}">

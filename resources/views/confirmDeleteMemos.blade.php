@@ -11,27 +11,26 @@
 <body style="background-color:#BFDBFE; --bg-opacity: 1; height: 100vh" class="container text-black-50">
     <div class="m-3">
         <h1>メモ削除</h1>
-        <div>
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="my-3">
-                    @foreach ($errors->all() as $error)
-                    <li class="list-unstyled fw-bold">{{ $error }}</li>
-                    @endforeach
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="my-3">
+                @foreach ($errors->all() as $error)
+                <li class="list-unstyled fw-bold">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if ($does_memo_exists === false)
+        <h1><span class="bg-light fw-bold">メモはありません</span></h1>
+        @else
+            <div class="my-3">
+                <ul class="list-unstyled text-black">
+                    <li class="bg-light fw-bold p-1 my-3">タイトル: {{ $memo->title }}</li>
+                    <li class="bg-light fw-bold p-1 my-3">メモ: {{ $memo->memo }}</li>
                 </ul>
             </div>
-            @endif
-            @if ($does_memo_exists === false)
-                <p>メモはありません</p>
-            @else
-                <div class="my-3">
-                    <ul class="list-unstyled text-black">
-                        <li class="bg-light fw-bold p-1 my-3">タイトル: {{ $memo->title }}</li>
-                        <li class="bg-light fw-bold p-1 my-3">メモ: {{ $memo->memo }}</li>
-                    </ul>
-                </div>
-            @endif
-        </div>
+        @endif
     </div>
     <div class="my-5 mx-3">
         <h2 class="fw-bold"><span class="text-danger">上記のメモを削除しますか？</span></h2>

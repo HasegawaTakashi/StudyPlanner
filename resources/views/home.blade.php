@@ -36,15 +36,16 @@
     </div>
   </nav>
   <div class="m-3">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="my-3">
-                @foreach ($errors->all() as $error)
-                <li class="list-unstyled fw-bold">{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="my-3">
+            @foreach ($errors->all() as $error)
+            <li class="list-unstyled fw-bold">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
+
     @if ($does_memo_exists === false)
             <h1 class="m-3"><span class="bg-light fw-bold">メモはありません</span></h1>
     @else
