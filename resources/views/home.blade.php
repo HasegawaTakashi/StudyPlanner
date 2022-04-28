@@ -46,7 +46,7 @@
         </div>
     @endif
     @if ($does_memo_exists === false)
-            <h1><span class="bg-light">メモはありません</span></h1>
+            <h1 class="m-3"><span class="bg-light fw-bold">メモはありません</span></h1>
     @else
       <div style="height: 100vh">
         <div class="bg-light p-3 m-3">
