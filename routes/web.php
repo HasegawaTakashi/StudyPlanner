@@ -25,11 +25,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/home', function () {
     $user_id = \Auth::id();
-    $memos = Memo::where('user_id', $user_id)->get();
-    $does_memo_exists = $memos->count() === 0 ? false : true;
+    $random_memos = Memo::where('user_id', $user_id)->inRandomOrder()->get();
+    $does_memo_exists = $random_memos->count() === 0 ? false : true;
     return view('home')
         ->with('user_id', $user_id)
-        ->with('memos', $memos)
+        ->with('random_memos', $random_memos)
         ->with('does_memo_exists', $does_memo_exists);
 })->middleware(['auth'])->name('home');
 
